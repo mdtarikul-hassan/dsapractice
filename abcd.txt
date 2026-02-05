@@ -1,5 +1,0 @@
-this is dummy code 
-
-practices questions for dsa in java
-
-creat a new branch thhis is feature1
