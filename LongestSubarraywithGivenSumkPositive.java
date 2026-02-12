@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.Map;
+
 public class LongestSubarraywithGivenSumkPositive{
     public int longestSum(int[] arr, int targetSum){
     // ------------------- brute force -------------
@@ -16,17 +19,17 @@ public class LongestSubarraywithGivenSumkPositive{
         // return maxLength;
 
     // -------------------- better one --------------------
-        int maxLength = 0;
-        for(int i = 0; i< arr.length; i++){
-            int currentSum = 0;
-            for(int j = i; j< arr.length; j++){
-                currentSum += arr[j];
-                if(currentSum == targetSum){
-                    maxLength = Math.max(maxLength, j-i+1);
-                }
-            }
-        }
-        return maxLength;
+        // int maxLength = 0;
+        // for(int i = 0; i< arr.length; i++){
+        //     int currentSum = 0;
+        //     for(int j = i; j< arr.length; j++){
+        //         currentSum += arr[j];
+        //         if(currentSum == targetSum){
+        //             maxLength = Math.max(maxLength, j-i+1);
+        //         }
+        //     }
+        // }
+        // return maxLength;
 
     // -------------- optimal [sliding window] -----------------
         // int n = arr.length;
@@ -50,6 +53,32 @@ public class LongestSubarraywithGivenSumkPositive{
         // }
 
         // return maxLen;
+
+    // ------------------ optimal one by hashmap ------------------------
+        int n = arr.length;
+        Map<Integer, Integer> preSumMap = new HashMap<>();
+        int sum = 0;
+        int maxLen = 0;
+
+        for (int i = 0; i < n; i++) {
+            sum += arr[i];
+
+            if (sum == targetSum) {
+                maxLen = i + 1;
+            }
+
+            int rem = sum - targetSum;
+            if (preSumMap.containsKey(rem)) {
+                int len = i - preSumMap.get(rem);
+                maxLen = Math.max(maxLen, len);
+            }
+
+            if (!preSumMap.containsKey(sum)) {
+                preSumMap.put(sum, i);
+            }
+        }
+
+        return maxLen;
     }
     public static void main(String[] args) {
         int[] arr = {10, 5, 2, 7, 1, 9};
