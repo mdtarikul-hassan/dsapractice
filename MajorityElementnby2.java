@@ -1,3 +1,4 @@
+import java.util.*;
 
 public class MajorityElementnby2 {
     public static int Majority(int[] nums) {
@@ -14,6 +15,24 @@ public class MajorityElementnby2 {
         //     }
         // }
         // return -1;
+
+     // ----------------- better by sort this array -------------- O(n2)
+        int n = nums.length;
+        Arrays.sort(nums);
+        int count = 0;
+        int ans = nums[0];
+        for(int i = 1; i< n; i++){
+            if(nums[i] == nums[i-1]){
+                    count++;
+            }else{
+                count = 1;
+                ans = nums[i];
+            }
+        }
+        if(count > (n/2)){
+            return ans;
+        }
+        return ans;
         
     // -------------------- better by Hashmap --------------- O(n)
         // int n = nums.length;
@@ -41,20 +60,21 @@ public class MajorityElementnby2 {
         // }
         // return major;
     
-    // -------------- better or optimal by array ------------
-        int n = nums.length;
-        int i = 0;
-        int count = 0;
-        for (int j = 0; j < nums.length; j++) {
-            if(nums[j] == nums[i]){
-                count++;
-            }if(count > (n/2)){
-                return nums[j];
-            }
-            i++;
-        }
-        
-        return -1;
+    // -------------- better or optimal by array ------------ O(n)
+        // int n = nums.length;
+        // int i = 0;
+        // int count = 0;
+        // for (int j = 0; j < nums.length; j++) {
+        //     if(nums[j] == nums[i]){
+        //         count++;
+        //     }if(count > (n/2)){
+        //         return nums[j];
+        //     }
+        //     i++;
+        // }
+        // return -1;
+
+    
     }
         
     public static void main(String[] args){
