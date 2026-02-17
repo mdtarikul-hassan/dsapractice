@@ -59,19 +59,6 @@ public class MajorityElementnby2 {
         // }
         // return major;
     
-    // -------------- better or optimal by array ------------ O(n)
-        // int n = nums.length;
-        // int i = 0;
-        // int count = 0;
-        // for (int j = 0; j < nums.length; j++) {
-        //     if(nums[j] == nums[i]){
-        //         count++;
-        //     }if(count > (n/2)){
-        //         return nums[j];
-        //     }
-        //     i++;
-        // }
-        // return -1;
 
     //-------------------- better or optimal by Boyer–Moore Voting Algorithm ------------ O(n)
         int n = nums.length;
