@@ -1,4 +1,3 @@
-import java.util.*;
 
 public class MajorityElementnby2 {
     public static int Majority(int[] nums) {
@@ -17,22 +16,22 @@ public class MajorityElementnby2 {
         // return -1;
 
      // ----------------- better by sort this array -------------- O(n2)
-        int n = nums.length;
-        Arrays.sort(nums);
-        int count = 0;
-        int ans = nums[0];
-        for(int i = 1; i< n; i++){
-            if(nums[i] == nums[i-1]){
-                    count++;
-            }else{
-                count = 1;
-                ans = nums[i];
-            }
-        }
-        if(count > (n/2)){
-            return ans;
-        }
-        return ans;
+        // int n = nums.length;
+        // Arrays.sort(nums);
+        // int count = 0;
+        // int ans = nums[0];
+        // for(int i = 1; i< n; i++){
+        //     if(nums[i] == nums[i-1]){
+        //             count++;
+        //     }else{
+        //         count = 1;
+        //         ans = nums[i];
+        //     }
+        // }
+        // if(count > (n/2)){
+        //     return ans;
+        // }
+        // return ans;
         
     // -------------------- better by Hashmap --------------- O(n)
         // int n = nums.length;
@@ -74,6 +73,30 @@ public class MajorityElementnby2 {
         // }
         // return -1;
 
+    //-------------------- better or optimal by Boyer–Moore Voting Algorithm ------------ O(n)
+        int n = nums.length;
+        int cnt = 0;
+        int el = 0;
+        for (int i = 0; i < n; i++) {
+            if (cnt == 0) {
+                cnt = 1;
+                el = nums[i];
+            } else if (el == nums[i]) {
+                cnt++;
+            } else {
+                cnt--;
+            }
+        }
+        int cnt1 = 0;
+        for (int i = 0; i < n; i++) {
+            if (nums[i] == el) {
+                cnt1++;
+            }
+        }
+        if (cnt1 > (n / 2)) {
+            return el;
+        }
+        return -1;
     
     }
         
