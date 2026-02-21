@@ -15,7 +15,7 @@ public class MajorityElementnby2 {
         // }
         // return -1;
 
-     // ----------------- better by sort this array -------------- O(n2)
+     // ----------------- better by sort this array -------------- O(nlogn)
         // int n = nums.length;
         // Arrays.sort(nums);
         // int count = 0;
@@ -31,7 +31,7 @@ public class MajorityElementnby2 {
         // if(count > (n/2)){
         //     return ans;
         // }
-        // return ans;
+        // return -1;
         
     // -------------------- better by Hashmap --------------- O(n)
         // int n = nums.length;
