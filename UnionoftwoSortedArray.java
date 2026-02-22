@@ -30,43 +30,92 @@ public class UnionoftwoSortedArray {
     //     return res;
     // }
 
-    // ---------------------- optimal approach ------------ O(n+m)
-    static ArrayList<Integer> findUnion(int[] a, int[] b){
-        ArrayList<Integer> union = new ArrayList<>();
-        int n = a.length, m = b.length;
+// ---------------------- optimal approach ------------ O(n+m)
+    // static ArrayList<Integer> findUnion(int[] a, int[] b){
+    //     ArrayList<Integer> union = new ArrayList<>();
+    //     int n = a.length, m = b.length;
+    //     int i = 0, j = 0;
+    //     while(i < n && j < m){
+    //         if(a[i] < b[j]){
+    //             if(union.isEmpty() || union.get(union.size() -1) != a[i]){
+    //                 union.add(a[i]); 
+    //             }
+    //             i++;
+    //         }else if(a[i] > b[j]){
+    //             if(union.isEmpty() || union.get(union.size() -1) != b[j]){
+    //                 union.add(b[j]); 
+    //             }
+    //             j++;
+    //         }else{
+    //             if(union.isEmpty() || union.get(union.size() -1) != a[i]){
+    //                 union.add(a[i]);
+    //             }
+    //             i++;
+    //             j++;
+    //         }
+    //     }
+    //     while(i < n){
+    //         if(union.isEmpty() || union.get(union.size() -1) != a[i]){
+    //             union.add(a[i]);
+    //         }
+    //         i++;
+    //     }
+    //     while(j < m){
+    //         if(union.isEmpty() || union.get(union.size() -1) != b[j]){
+    //             union.add(b[j]);
+    //         }
+    //         j++;
+    //     }
+    //     return union;
+    // }
+
+// -------------- this is same as previous one ---[ Using Merge Step of Merge Sort ] --------- O(n+m)
+    static ArrayList<Integer> findUnion(int[] a, int[] b) {
+        ArrayList<Integer> res = new ArrayList<>();
+        int n = a.length;
+        int m = b.length;
+
         int i = 0, j = 0;
-        while(i < n && j < m){
-            if(a[i] < b[j]){
-                if(union.isEmpty() || union.get(union.size() -1) != a[i]){
-                    union.add(a[i]); 
-                }
+        while(i < n && j < m) {
+            if(i > 0 && a[i - 1] == a[i]) {
                 i++;
-            }else if(a[i] > b[j]){
-                if(union.isEmpty() || union.get(union.size() -1) != b[j]){
-                    union.add(b[j]); 
-                }
+                continue;
+            }
+            if(j > 0 && b[j - 1] == b[j]) {
                 j++;
-            }else{
-                if(union.isEmpty() || union.get(union.size() -1) != a[i]){
-                    union.add(a[i]);
-                }
+                continue;
+            }
+
+            if(a[i] < b[j]) {
+                res.add(a[i]);
+                i++;
+            }else if(a[i] > b[j]) {
+                res.add(b[j]);
+                j++;
+            }else {
+                res.add(a[i]);
                 i++;
                 j++;
             }
         }
-        while(i < n){
-            if(union.isEmpty() || union.get(union.size() -1) != a[i]){
-                union.add(a[i]);
+        
+        while (i < n) {
+            if(i > 0 && a[i - 1] == a[i]) {
+                i++;
+                continue;
             }
+            res.add(a[i]);
             i++;
         }
-        while(j < m){
-            if(union.isEmpty() || union.get(union.size() -1) != b[j]){
-                union.add(b[j]);
+        while (j < m) {
+            if(j > 0 && b[j - 1] == b[j]) {
+                j++;
+                continue;
             }
+            res.add(b[j]);
             j++;
         }
-        return union;
+        return res;
     }
     public static void main(String[] args) {
         int[] a = {1, 1, 2, 2, 2, 4};
