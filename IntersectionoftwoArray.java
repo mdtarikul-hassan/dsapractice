@@ -2,15 +2,28 @@
 import java.util.*;
 
 public class IntersectionoftwoArray {
-// ----------------- brute force approach --------------- O(n2)
     static ArrayList<Integer> intersection(int[] a, int[] b){
+    // ----------------- brute force approach --------------- O(n2)
+    //     ArrayList<Integer> list = new ArrayList<>();
+    //     for(int i = 0; i< a.length; i++){
+    //         for(int j = 0; j< b.length; j++){
+    //             if(a[i] == b[j]){
+    //                 if(!list.contains(a[i])){
+    //                     list.add(a[i]);
+    //                 }
+    //             }
+    //         }
+    //     }
+    //     return list;
+
+    // ------------------ better by hashmap ------------
         ArrayList<Integer> list = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
         for(int i = 0; i< a.length; i++){
             for(int j = 0; j< b.length; j++){
-                if(a[i] == b[j]){
-                    if(!list.contains(a[i])){
-                        list.add(a[i]);
-                    }
+                if(a[i] == b[j] && !map.containsKey(a[i])){
+                    map.put(a[i], 1);
+                    list.add(a[i]);
                 }
             }
         }
