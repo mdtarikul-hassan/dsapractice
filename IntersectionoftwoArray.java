@@ -29,24 +29,44 @@ public class IntersectionoftwoArray {
         // }
         // return list;
     // }
+
+
     // ---------------------- optimal by hashset ---------------- O(n)
-    static ArrayList<Integer> intersection(ArrayList<Integer> a,ArrayList<Integer> b){
-        Set<Integer> as = new HashSet<>(a);
-        Set<Integer> ls = new HashSet<>();
+    // static ArrayList<Integer> intersection(ArrayList<Integer> a,ArrayList<Integer> b){
+    //     Set<Integer> as = new HashSet<>(a);
+    //     Set<Integer> ls = new HashSet<>();
+    //     ArrayList<Integer> list = new ArrayList<>();
+    //     for(int i = 0; i< b.size(); i++){
+    //         if(as.contains(b.get(i)) && !ls.contains(b.get(i))){
+    //             ls.add(b.get(i));
+    //             list.add(b.get(i));
+    //         }
+    //     }
+    //     return list;
+    // }
+
+// ------------------- this is also optimal by using a hashset -------------- O(n)
+    static ArrayList<Integer> intersection(int[] a, int[] b){
+        HashSet<Integer> sa = new HashSet<>();
+        for (int num : a) {
+            sa.add(num);
+        }
         ArrayList<Integer> list = new ArrayList<>();
-        for(int i = 0; i< b.size(); i++){
-            if(as.contains(b.get(i)) && !ls.contains(b.get(i))){
-                ls.add(b.get(i));
-                list.add(b.get(i));
+
+        for (int num : b) {
+            if (sa.contains(num)) {
+                list.add(num);
+                sa.remove(num);
             }
         }
         return list;
     }
+
     public static void main(String[] args) {
-        // int[] a = {1, 2, 3, 2, 1};
-        // int[] b = {3, 2, 2, 3, 3, 2};
-        ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
-        ArrayList<Integer> b = new ArrayList<>(Arrays.asList(3, 2, 2, 3, 3, 2));
+        int[] a = {1, 2, 3, 2, 1};
+        int[] b = {3, 2, 2, 3, 3, 2};
+        // ArrayList<Integer> a = new ArrayList<>(Arrays.asList(1, 2, 3, 2, 1));
+        // ArrayList<Integer> b = new ArrayList<>(Arrays.asList(3, 2, 2, 3, 3, 2));
 
         ArrayList<Integer> res = intersection(a, b);
 
