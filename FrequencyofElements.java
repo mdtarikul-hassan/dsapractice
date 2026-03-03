@@ -1,5 +1,6 @@
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FrequencyofElements {
     static ArrayList<ArrayList<Integer>> countFrequency(int[] arr){
@@ -27,23 +28,37 @@ public class FrequencyofElements {
         // return ans;
 
     // --------------------- better by binary search ---------------- O(nlogn)
-        Arrays.sort(arr);
+        // Arrays.sort(arr);
+        // ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
+        // int n = arr.length;
+        // int i = 0;
+        // while(i<n){
+        //     int current = arr[i];
+        //     int firstIdx = i;
+        //     int lastIdx = i;
+        //     while(lastIdx + 1 <n && arr[lastIdx+1] == current){
+        //         lastIdx++;
+        //     }
+        //     int count = lastIdx - firstIdx +1;
+        //     ArrayList<Integer> temp = new ArrayList<>();
+        //     temp.add(current);
+        //     temp.add(count);
+        //     ans.add(temp);
+        //     i = lastIdx + 1;
+        // }
+        // return ans;
+
+    // ------------------ optimal by hashmap --------------- O(n)
+        HashMap<Integer, Integer> map = new HashMap<>();
         ArrayList<ArrayList<Integer>> ans = new ArrayList<>();
-        int n = arr.length;
-        int i = 0;
-        while(i<n){
-            int current = arr[i];
-            int firstIdx = i;
-            int lastIdx = i;
-            while(lastIdx + 1 <n && arr[lastIdx+1] == current){
-                lastIdx++;
-            }
-            int count = lastIdx - firstIdx +1;
+        for(int val : arr){
+            map.put(val, map.getOrDefault(val, 0) + 1);
+        }
+        for (Map.Entry<Integer, Integer> entry : map.entrySet()){
             ArrayList<Integer> temp = new ArrayList<>();
-            temp.add(current);
-            temp.add(count);
+            temp.add(entry.getKey());
+            temp.add(entry.getValue());
             ans.add(temp);
-            i = lastIdx + 1;
         }
         return ans;
     }
