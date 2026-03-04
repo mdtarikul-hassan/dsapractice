@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 
 public class CountUniqueElement {
@@ -69,11 +71,39 @@ public class CountUniqueElement {
         }
     }
 
+    // ------------------ optimal by Hashing -------------
+    static int countDistinctWindow(int[] arr, int k){
+        ArrayList<Integer> list = new ArrayList<>();
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int n = arr.length;
+        int i = 0, j = 0;
+        while(j < n){
+            map.put(arr[j],map.getOrDefault(arr[j], 0) + 1);
+            if(j-i+1 == k){
+                list.add(map.size());
+                
+                map.put(arr[i], map.get(arr[i]) -1);
+                if(map.get(arr[i]) == 0){
+                    map.remove(arr[i]);
+                }
+
+                i++;
+            }
+            j++;
+        }
+        for(int val : list){
+            System.out.print(val + " ");
+        }
+        return 0;
+    }
+
     public static void main(String[] args) {
         int arr[] = { 6, 10, 5, 4, 9, 120, 4, 6, 10 };
         int k = 4;
         System.out.println(countDistinct(arr));
         counrSlidingWindow(arr,k);
+        System.out.println();
+        countDistinctWindow(arr,k);
 
     }
 }
