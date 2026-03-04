@@ -1,6 +1,9 @@
 import java.util.HashMap;
+import java.util.Map;
 
 public class FirstNonRepeatingElement {
+    // ********************* Find First non repeating element **************
+
     static int firstNonRepeating(int[] arr){
     // ------------------------ brute force approach ------------ O(n2)
         // int n = arr.length;
@@ -34,9 +37,26 @@ public class FirstNonRepeatingElement {
         }
         return -1;
     }
+
+    // ***********************************find all non repeating elements ********************
+    
+    static void allNonRepeating(int[] arr){
+    // ------------------- optimal by hashing ---------------- O(n)
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int val : arr){
+            map.put(val, map.getOrDefault(val, 0) + 1);
+        }
+        for(Map.Entry<Integer, Integer> entry : map.entrySet()){
+            if(entry.getValue() == 1){
+                System.out.print(entry.getKey() + " ");
+            }
+        }
+    }
     public static void main(String[] args) {
         int arr[] = { 9, 4, 9,2, 6, 7, 4 };
 
-        System.out.print(firstNonRepeating(arr));
+        System.out.println(firstNonRepeating(arr));
+        allNonRepeating(arr);
+
     }
 }
