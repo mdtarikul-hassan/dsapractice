@@ -19,16 +19,23 @@ public class CountUniqueElement {
         // return count;
 
     // ----------------- better approach by array sort -------------- O(nlogn)
-        int n= arr.length;
-        Arrays.sort(arr);
-        int count = 1;
-        for(int i = 0; i< n; i++){
-            while(i < n-1 && arr[i] == arr[i+1]){
-                i++;
-            }
-            count++;
+        // int n= arr.length;
+        // Arrays.sort(arr);
+        // int count = 1;
+        // for(int i = 0; i< n; i++){
+        //     while(i < n-1 && arr[i] == arr[i+1]){
+        //         i++;
+        //     }
+        //     count++;
+        // }
+        // return count;
+
+    // --------------- optimal approach usinh HashSet -----------------
+        HashSet<Integer> set = new HashSet<>();
+        for(int val : arr){
+            set.add(val);
         }
-        return count;
+        return set.size();
     }
     public static void main(String[] args) {
         int arr[] = { 6, 10, 5, 4, 9, 120, 4, 6, 10 };
