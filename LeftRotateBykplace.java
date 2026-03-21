@@ -15,22 +15,48 @@ public class LeftRotateBykplace {
 
 
     // ---------------- better --------------- O(n)
+        // int n = arr.length;
+        // k = k % n;
+
+        // int[] res = new int[n];
+
+        // for (int i = 0; i < n; i++) {
+        //     if (i < k) {
+        //         res[i] = arr[n + i - k];
+        //     } 
+        //     else {
+        //         res[i] = arr[i - k];
+        //     }
+        // }
+
+        // for (int i = 0; i < n; i++) {
+        //     arr[i] = res[i];
+        // }
+
+
+    // ------------------ optimal approach ----------------- O(n)
         int n = arr.length;
+        if (n == 0) return;
+
         k = k % n;
+        int i, j;
 
-        int[] res = new int[n];
-
-        for (int i = 0; i < n; i++) {
-            if (i < k) {
-                res[i] = arr[n + i - k];
-            } 
-            else {
-                res[i] = arr[i - k];
-            }
+        for (i = n - k, j = n - 1; i < j; i++, j--){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = res[i];
+        for (i = 0, j = n - k - 1; i < j; i++, j--){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        for (i = 0, j = n - 1; i < j; i++, j--){
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
         }
     }
 
