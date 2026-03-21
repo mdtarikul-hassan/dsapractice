@@ -1,17 +1,37 @@
 public class LeftRotateBykplace {
     static void rotateclockwise(int[] arr, int k){
     // ---------------- brute force approach ----------- O(n*k)
-        if (k == 0 || arr.length == 0) {
-            return;
-        }
-        int n = arr.length;
-        int temp = arr[n - 1];
-        for (int i = n - 1; i > 0; i--) {
-            arr[i] = arr[i - 1];
-        }
-        arr[0] = temp;
+        // if (k == 0 || arr.length == 0) {
+        //     return;
+        // }
+        // int n = arr.length;
+        // int temp = arr[n - 1];
+        // for (int i = n - 1; i > 0; i--) {
+        //     arr[i] = arr[i - 1];
+        // }
+        // arr[0] = temp;
 
-        rotateclockwise(arr, k - 1);
+        // rotateclockwise(arr, k - 1);
+
+
+    // ---------------- better --------------- O(n)
+        int n = arr.length;
+        k = k % n;
+
+        int[] res = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            if (i < k) {
+                res[i] = arr[n + i - k];
+            } 
+            else {
+                res[i] = arr[i - k];
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            arr[i] = res[i];
+        }
     }
 
     public static void main(String[] args) {
