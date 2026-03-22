@@ -1,6 +1,6 @@
 public class Practices {
     static int missing(int[] arr){
-    // --------------- btutr force ------------
+    // --------------- btute force ------------
         // for(int i = 1; i< arr.length+1; i++){
         //     boolean found  =false;
         //     for (int j = 0; j < arr.length; j++) {
@@ -16,14 +16,25 @@ public class Practices {
         // return -1;
 
     // ---------------- by sum of n number ------------
-        int n=arr.length +1;
-        int sum = 0;
-        for (int i = 0; i < n-1; i++) {
-            sum += arr[i];
+        // int n=arr.length +1;
+        // int sum = 0;
+        // for (int i = 0; i < n-1; i++) {
+        //     sum += arr[i];
+        // }
+        // int expSum = (n*(n+1)) / 2;
+        // int missing = expSum - sum;
+        // return missing;
+
+    // --------------- by XOR operation --------------
+        int n = arr.length + 1;
+        int xor1 = 0, xor2 = 0;
+        for (int i = 0; i < n - 1; i++) {
+            xor2 ^= arr[i];
         }
-        int expSum = (n*(n+1)) / 2;
-        int missing = expSum - sum;
-        return missing;
+        for (int i = 1; i <= n; i++) {
+            xor1 ^= i;
+        }
+        return xor1 ^ xor2;
 
     }
     public static void main(String[] args) {
