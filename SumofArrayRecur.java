@@ -15,18 +15,25 @@ public class SumofArrayRecur {
         // return N+sumofArray(N -1);
     // }
 
-    public int sumofArray(int[] arr){
+    public int sumofArray(int[] arr , int index){
     //  ----------------- brute force approach [sum of an array]-------------- O(n)
-        int sum = 0;
-        for(int i = 0; i<arr.length; i++){
-            sum = sum +arr[i];
+        // int sum = 0;
+        // for(int i = 0; i<arr.length; i++){
+        //     sum = sum +arr[i];
+        // }
+        // return sum;
+
+
+    //  ----------------- recursive approach [sum of an array]-------------- O(n)
+        if(index == arr.length){
+            return 0;
         }
-        return sum;
+        return arr[index]+sumofArray(arr, index+1);
     }
     public static void main(String[] args) {
         int[] arr = {2,4,3,6,8,5,89};
-        int N = 5;
+        // int N = 5;
         SumofArrayRecur obj = new SumofArrayRecur();
-        System.out.println(obj.sumofArray(arr));
+        System.out.println(obj.sumofArray(arr , 0));
     }
 }
