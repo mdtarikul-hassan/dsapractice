@@ -50,19 +50,32 @@ public class Practices {
         //     }
         // }
         // return ms;
-            // ----------- better ----------------
+
+
+    // ----------- better ----------------
+        // int ms = Integer.MIN_VALUE;
+        // for(int i =0; i<nums.length; i++){
+        //     int cs = 0;
+        //     for(int j = i; j<nums.length; j++){
+        //         cs += nums[j];
+        //         ms = Math.max(ms, cs);
+        //     }
+        // }
+        // return ms;
+
+
+    // -------------optimal -------------
         int ms = Integer.MIN_VALUE;
+        int cs = 0;
         for(int i =0; i<nums.length; i++){
-            int cs = 0;
-            for(int j = i; j<nums.length; j++){
-                cs += nums[j];
-                ms = Math.max(ms, cs);
+            cs += nums[i];
+            if(cs > ms){
+                ms = cs;
+            }if(cs<0){
+                cs = 0;
             }
         }
         return ms;
-
-
-
 
     }
     public static void main(String[] args) {
