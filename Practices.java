@@ -37,10 +37,37 @@ public class Practices {
         return xor1 ^ xor2;
 
     }
+    static int maxSubArray(int[] nums) {
+    // ------------- brute force -------------
+        int ms = Integer.MIN_VALUE;
+        for(int i =0; i<nums.length; i++){
+            for(int j = i; j<nums.length; j++){
+                int cs = 0;
+                for(int k=i; k<=j; k++){
+                    cs += nums[k];
+                }
+                ms = Math.max(ms, cs);
+            }
+        }
+        return ms;
+
+
+
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
-        int[] arr = {8, 2, 4, 5, 3, 7, 1};
-        System.out.println(missing(arr));
+
+        // int[] arr = {8, 2, 4, 5, 3, 7, 1};
+        // System.out.println(missing(arr));
+
+
+        // kadan's algo
+        int[] arr = { -2, 1, -3, 4, -1, 2, 1, -5, 4};
+        int maxSum =maxSubArray(arr);
+        System.out.println("The maximum subarray sum is: " + maxSum);
+
+
+
     }
 }
