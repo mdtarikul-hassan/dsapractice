@@ -65,12 +65,33 @@ public class Practices {
 
 
     // -------------optimal -------------
+        // int ms = Integer.MIN_VALUE;
+        // int cs = 0;
+        // for(int i =0; i<nums.length; i++){
+        //     cs += nums[i];
+        //     if(cs > ms){
+        //         ms = cs;
+        //     }if(cs<0){
+        //         cs = 0;
+        //     }
+        // }
+        // return ms;
+
+          // --------------- follow up ---------------
+
         int ms = Integer.MIN_VALUE;
         int cs = 0;
+        int start = 0;
+        int arrStart = -1, arrEnd = -1;
         for(int i =0; i<nums.length; i++){
+            if(cs == 0){
+                start = i;
+            }
             cs += nums[i];
             if(cs > ms){
                 ms = cs;
+                arrStart = start;
+                arrEnd = i;
             }if(cs<0){
                 cs = 0;
             }
