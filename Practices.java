@@ -39,17 +39,28 @@ public class Practices {
     }
     static int maxSubArray(int[] nums) {
     // ------------- brute force -------------
+        // int ms = Integer.MIN_VALUE;
+        // for(int i =0; i<nums.length; i++){
+        //     for(int j = i; j<nums.length; j++){
+        //         int cs = 0;
+        //         for(int k=i; k<=j; k++){
+        //             cs += nums[k];
+        //         }
+        //         ms = Math.max(ms, cs);
+        //     }
+        // }
+        // return ms;
+            // ----------- better ----------------
         int ms = Integer.MIN_VALUE;
         for(int i =0; i<nums.length; i++){
+            int cs = 0;
             for(int j = i; j<nums.length; j++){
-                int cs = 0;
-                for(int k=i; k<=j; k++){
-                    cs += nums[k];
-                }
+                cs += nums[j];
                 ms = Math.max(ms, cs);
             }
         }
         return ms;
+
 
 
 
