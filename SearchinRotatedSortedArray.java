@@ -33,10 +33,29 @@ public class SearchinRotatedSortedArray {
         }
         return -1;
     }
+
+
+    // ------------ brute force key is present on not -------------- O(n)
+    static boolean searchInARotatedSortedArrayII(int[] arr, int k) {
+        for (int num : arr) {
+            if (num == k) return true;
+        }
+        return false;
+    }
     public static void main(String[] args) {
-        int[] nums = {4, 5, 6, 7, 0, 1, 2};
-        int target = 0;
-        int index = search(nums, target);
-        System.out.println(index);
+        // int[] nums = {4, 5, 6, 7, 0, 1, 2};
+        // int target = 0;
+        // int index = search(nums, target);
+        // System.out.println(index);
+
+
+    // q) key is present or not
+        int[] arr = {7, 8, 1, 2, 3, 3, 3, 4, 5, 6};
+        int k = 3;
+        boolean ans = searchInARotatedSortedArrayII(arr, k);
+        if (!ans)
+            System.out.println("Target is not present.");
+        else
+            System.out.println("Target is present in the array.");
     }
 }
