@@ -99,6 +99,16 @@ public class Practices {
         return ms;
 
     }
+    public static int largestElem(int[] arr){
+        // brute force O(n)
+        int largeValue = Integer.MIN_VALUE;
+        for(int i = 0; i<arr.length; i++){
+            if(arr[i] > largeValue){
+                largeValue = arr[i];
+            }
+        }
+        return largeValue;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -108,10 +118,13 @@ public class Practices {
 
 
         // kadan's algo
-        int[] arr = { -2, 1, -3, 4, -1, 2, 1, -5, 4};
-        int maxSum =maxSubArray(arr);
-        System.out.println("The maximum subarray sum is: " + maxSum);
+        // int[] arr = { -2, 1, -3, 4, -1, 2, 1, -5, 4};
+        // int maxSum =maxSubArray(arr);
+        // System.out.println("The maximum subarray sum is: " + maxSum);
 
+        // q13 largest element
+        int largeArr[] = {2, 5, 1, 3, 0};
+        System.out.println("Largest value is : "+largestElem(largeArr));
 
 
     }
