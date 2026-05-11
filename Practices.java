@@ -1,3 +1,6 @@
+
+import java.util.Arrays;
+
 public class Practices {
     static int missing(int[] arr){
     // --------------- btute force ------------
@@ -100,14 +103,18 @@ public class Practices {
 
     }
     public static int largestElem(int[] arr){
-        // brute force O(n)
-        int largeValue = Integer.MIN_VALUE;
-        for(int i = 0; i<arr.length; i++){
-            if(arr[i] > largeValue){
-                largeValue = arr[i];
-            }
-        }
-        return largeValue;
+        // brute force O(nlogn)
+        Arrays.sort(arr);
+        return arr[arr.length-1];
+
+        // optimal O(n)
+        // int largeValue = Integer.MIN_VALUE;
+        // for(int i = 0; i<arr.length; i++){
+        //     if(arr[i] > largeValue){
+        //         largeValue = arr[i];
+        //     }
+        // }
+        // return largeValue;
     }
     public static void main(String[] args) {
 
