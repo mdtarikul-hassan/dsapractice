@@ -116,6 +116,12 @@ public class Practices {
         // }
         // return largeValue;
     }
+
+    public static int secondLargestElem(int[] arr){
+        // brute force O(nlogn)
+        Arrays.sort(arr);
+        return arr[arr.length-2];
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -130,9 +136,12 @@ public class Practices {
         // System.out.println("The maximum subarray sum is: " + maxSum);
 
         // q13 largest element
-        int largeArr[] = {2, 5, 1, 3, 0};
-        System.out.println("Largest value is : "+largestElem(largeArr));
+        // int largeArr[] = {2, 5, 1, 3, 0};
+        // System.out.println("Largest value is : "+largestElem(largeArr));
 
 
+        // q14 second largest element
+        int arr[] = {2, 5, 1, 3, 0};
+        System.out.println("Second Largest value is : "+secondLargestElem(arr));
     }
 }
