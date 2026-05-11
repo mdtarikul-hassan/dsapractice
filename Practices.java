@@ -119,8 +119,21 @@ public class Practices {
 
     public static int secondLargestElem(int[] arr){
         // brute force O(nlogn)
-        Arrays.sort(arr);
-        return arr[arr.length-2];
+        // Arrays.sort(arr);
+        // return arr[arr.length-2];
+
+        // optimal O(n)
+        int largeValue = Integer.MIN_VALUE;
+        int secLargeValue = Integer.MIN_VALUE;
+        for(int i = 0; i<arr.length; i++){
+            if(arr[i] > largeValue){
+                largeValue = arr[i];
+            }
+            if(arr[i] > secLargeValue && arr[i] < largeValue){
+                secLargeValue = arr[i];
+            }
+        }
+        return secLargeValue;
     }
     public static void main(String[] args) {
 
