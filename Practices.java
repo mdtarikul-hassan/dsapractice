@@ -209,6 +209,20 @@ public class Practices {
         arr[arr.length-1] = temp;
         return arr;
     }
+    public static int[] leftRotateByk(int[] arr,int k){
+        //optimal O(n)
+        int[] temp = new int[k];
+        for(int i = 0; i<k;i++){
+            temp[i] = arr[i];
+        }
+        for(int i = 0; i<arr.length-k; i++){
+            arr[i] = arr[i+k];
+        }
+        for(int i = arr.length-k; i<arr.length; i++){
+            arr[i] = temp[i+k-arr.length];
+        }
+        return arr;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -257,8 +271,16 @@ public class Practices {
 
 
         // q17 left rotate by 1
+        // int[] arr = {1,4,2,5,7,8};
+        // int[] ans = leftRotateByOne(arr);
+        // for(int i : ans){
+        //     System.out.print(i + " ");
+        // }
+
+
+        // q18 left rotate by k
         int[] arr = {1,4,2,5,7,8};
-        int[] ans = leftRotateByOne(arr);
+        int[] ans = leftRotateByk(arr, 3);
         for(int i : ans){
             System.out.print(i + " ");
         }
