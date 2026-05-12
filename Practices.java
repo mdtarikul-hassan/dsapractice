@@ -135,6 +135,19 @@ public class Practices {
         }
         return secLargeValue;
     }
+
+    public static final boolean checkSortedArray(int[] arr){
+        // brute force O(n2)
+        for(int i = 0; i< arr.length; i++){
+            for(int j = i+1; j<arr.length; j++){
+                if(arr[i] > arr[j]){
+                    return false;
+                }
+            }
+        }
+
+        return true;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -154,7 +167,16 @@ public class Practices {
 
 
         // q14 second largest element
-        int arr[] = {2, 5, 1, 3, 0};
-        System.out.println("Second Largest value is : "+secondLargestElem(arr));
+        // int arr[] = {2, 5, 1, 3, 0};
+        // System.out.println("Second Largest value is : "+secondLargestElem(arr));
+
+
+        // q15 check sorted array
+        int arr[] = {55,1,2,3,4,5,7,8};
+        if(checkSortedArray(arr)){
+            System.out.println("Array is Sorted.");
+        }else{
+            System.out.println("Array is not sorted");
+        }
     }
 }
