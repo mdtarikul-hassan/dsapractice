@@ -223,6 +223,24 @@ public class Practices {
         }
         return arr;
     }
+    public static int[] movesZerosToEnd(int[] arr){
+        // brute force O(n)
+        int[] temp = new int[arr.length];
+        int j = 0;
+        for(int i = 0; i<arr.length; i++){
+            if(arr[i] != 0){
+                temp[j] = arr[i];
+                j++;
+            }
+        }
+        for(int i = 0; i<=j; i++){
+            arr[i] = temp[i];
+        }
+        for(int i = j+1; i<arr.length; i++){
+            arr[i] = 0;
+        }
+        return arr;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -279,9 +297,17 @@ public class Practices {
 
 
         // q18 left rotate by k
-        int[] arr = {1,4,2,5,7,8};
-        int[] ans = leftRotateByk(arr, 3);
-        for(int i : ans){
+        // int[] arr = {1,4,2,5,7,8};
+        // int[] ans = leftRotateByk(arr, 3);
+        // for(int i : ans){
+        //     System.out.print(i + " ");
+        // }
+
+
+        // q19 moves zeros to end
+        int[] arr = {1,4,0,2,7,0,7,0,3,0,5,0,0,2,1,0,9};
+        int[] ans = movesZerosToEnd(arr);
+        for(int i: ans){
             System.out.print(i + " ");
         }
 
