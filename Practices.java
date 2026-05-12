@@ -199,6 +199,16 @@ public class Practices {
         }
         return list;
     }
+
+    public static int[] leftRotateByOne(int[] arr){
+        // optimal O(n)
+        int temp = arr[0];
+        for(int i = 0; i<arr.length-1; i++){
+            arr[i] = arr[i+1];
+        }
+        arr[arr.length-1] = temp;
+        return arr;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -238,11 +248,19 @@ public class Practices {
         //     System.out.print(arr[i] +" ");
         // }
 
-        // remove duplicate from unsorted array
-        int arr[] = {1,4,4,4,2,3,3,3,4,2,1,7,7,7,3,1,8,8,4,2,4,1,4,3,1};
-        ArrayList<Integer> list = removeDuplicateFromUnsorted(arr);
-        for(int l:list){
-            System.out.print(l +" ");
+        // q26 remove duplicate from unsorted array
+        // int arr[] = {1,4,4,4,2,3,3,3,4,2,1,7,7,7,3,1,8,8,4,2,4,1,4,3,1};
+        // ArrayList<Integer> list = removeDuplicateFromUnsorted(arr);
+        // for(int l:list){
+        //     System.out.print(l +" ");
+        // }
+
+
+        // q17 left rotate by 1
+        int[] arr = {1,4,2,5,7,8};
+        int[] ans = leftRotateByOne(arr);
+        for(int i : ans){
+            System.out.print(i + " ");
         }
 
     }
