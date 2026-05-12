@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Practices {
@@ -168,6 +169,25 @@ public class Practices {
         }
         return i+1;
     }
+
+    public static ArrayList<Integer> removeDuplicateFromUnsorted(int[] arr){
+        // breute force O(n2)
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i< arr.length; i++){
+            boolean found = false;
+            for(int j = 0; j< list.size(); j++){
+                if(arr[i] == list.get(j)){
+                    found = true;
+                    break;
+                }
+            }
+            if(!found){
+                list.add(arr[i]);
+            }
+        }
+
+        return list;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -201,10 +221,18 @@ public class Practices {
 
 
         // q16 remove duplicate from sorted array
-        int arr[] = {1,2,2,3,4,4,4,4,5,5,6,8};
-        int k = removeDuplicate(arr);
-        for(int i = 0; i< k; i++){
-            System.out.print(arr[i] +" ");
+        // int arr[] = {1,2,2,3,4,4,4,4,5,5,6,8};
+        // int k = removeDuplicate(arr);
+        // for(int i = 0; i< k; i++){
+        //     System.out.print(arr[i] +" ");
+        // }
+
+        // remove duplicate from unsorted array
+        int arr[] = {1,4,4,4,2,3,3,3,4,2,1,7,7,7,3,1,8,8,4,2,4,1,4,3,1};
+        ArrayList<Integer> list = removeDuplicateFromUnsorted(arr);
+        for(int l:list){
+            System.out.print(l +" ");
         }
+
     }
 }
