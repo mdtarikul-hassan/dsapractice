@@ -1,6 +1,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class Practices {
     static int missing(int[] arr){
@@ -172,20 +173,30 @@ public class Practices {
 
     public static ArrayList<Integer> removeDuplicateFromUnsorted(int[] arr){
         // breute force O(n2)
+        // ArrayList<Integer> list = new ArrayList<>();
+        // for(int i = 0; i< arr.length; i++){
+        //     boolean found = false;
+        //     for(int j = 0; j< list.size(); j++){
+        //         if(arr[i] == list.get(j)){
+        //             found = true;
+        //             break;
+        //         }
+        //     }
+        //     if(!found){
+        //         list.add(arr[i]);
+        //     }
+        // }
+
+
+        //optimal O(n)
+        HashMap<Integer, Boolean> map = new HashMap<>();
         ArrayList<Integer> list = new ArrayList<>();
-        for(int i = 0; i< arr.length; i++){
-            boolean found = false;
-            for(int j = 0; j< list.size(); j++){
-                if(arr[i] == list.get(j)){
-                    found = true;
-                    break;
-                }
-            }
-            if(!found){
+        for(int i=0; i<arr.length; i++){
+            if(!map.containsKey(arr[i])){
                 list.add(arr[i]);
+                map.put(arr[i], true);
             }
         }
-
         return list;
     }
     public static void main(String[] args) {
