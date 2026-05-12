@@ -136,7 +136,7 @@ public class Practices {
         return secLargeValue;
     }
 
-    public static final boolean checkSortedArray(int[] arr){
+    public static boolean checkSortedArray(int[] arr){
         // brute force O(n2)
         // for(int i = 0; i< arr.length; i++){
         //     for(int j = i+1; j<arr.length; j++){
@@ -155,6 +155,18 @@ public class Practices {
         }
 
         return true;
+    }
+
+    public static int removeDuplicate(int[] arr){
+        // brute force O(n)
+        int i=0;
+        for(int j = 1; j< arr.length; j++){
+            if(arr[i] != arr[j]){
+                i++;
+                arr[i] = arr[j];
+            }
+        }
+        return i+1;
     }
     public static void main(String[] args) {
 
@@ -180,11 +192,19 @@ public class Practices {
 
 
         // q15 check sorted array
-        int arr[] = {55,1,2,3,4,5,7,8};
-        if(checkSortedArray(arr)){
-            System.out.println("Array is Sorted.");
-        }else{
-            System.out.println("Array is not sorted");
+        // int arr[] = {55,1,2,3,4,5,7,8};
+        // if(checkSortedArray(arr)){
+        //     System.out.println("Array is Sorted.");
+        // }else{
+        //     System.out.println("Array is not sorted");
+        // }
+
+
+        // q16 remove duplicate from sorted array
+        int arr[] = {1,2,2,3,4,4,4,4,5,5,6,8};
+        int k = removeDuplicate(arr);
+        for(int i = 0; i< k; i++){
+            System.out.print(arr[i] +" ");
         }
     }
 }
