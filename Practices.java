@@ -138,11 +138,19 @@ public class Practices {
 
     public static final boolean checkSortedArray(int[] arr){
         // brute force O(n2)
+        // for(int i = 0; i< arr.length; i++){
+        //     for(int j = i+1; j<arr.length; j++){
+        //         if(arr[i] > arr[j]){
+        //             return false;
+        //         }
+        //     }
+        // }
+
+
+        //optimal O(n)
         for(int i = 0; i< arr.length; i++){
-            for(int j = i+1; j<arr.length; j++){
-                if(arr[i] > arr[j]){
-                    return false;
-                }
+            if(arr[i] > arr[i+1]){
+                return false;
             }
         }
 
