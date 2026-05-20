@@ -256,6 +256,17 @@ public class Practices {
         }
         return arr[size-1] + sumofArray(arr, size-1);
     }
+
+    public static void reverseArray(int[] arr, int start,int end){
+        if(start >= end){
+            return;
+        }
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        
+        reverseArray(arr, start+1, end-1);
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -333,9 +344,17 @@ public class Practices {
 
 
         // q124 sum of array using recursion
-        int[] arr = {1,5,3,6,2,7};
-        int size = arr.length;
-        System.out.println("sum : "+ sumofArray(arr, size));
+        // int[] arr = {1,5,3,6,2,7};
+        // int size = arr.length;
+        // System.out.println("sum : "+ sumofArray(arr, size));
         
+        // q125 reverse array using recursion
+        int[] arr = {2,5,1,4,3,6};
+        int end = arr.length-1;
+        reverseArray(arr, 0, end);
+        for( int i: arr){
+            System.out.print(i + " ");
+        }
+
     }
 }
