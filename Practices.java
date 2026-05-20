@@ -250,6 +250,12 @@ public class Practices {
         print1ToN(current+1, k);
         
     }
+    public static int sumofArray(int[] arr, int size){
+        if(size == 0){
+            return 0;
+        }
+        return arr[size-1] + sumofArray(arr, size-1);
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -322,8 +328,14 @@ public class Practices {
 
 
         // q123 print numbers using recursion
-        int k = 7;
-        print1ToN(1, k);
+        // int k = 7;
+        // print1ToN(1, k);
 
+
+        // q124 sum of array using recursion
+        int[] arr = {1,5,3,6,2,7};
+        int size = arr.length;
+        System.out.println("sum : "+ sumofArray(arr, size));
+        
     }
 }
