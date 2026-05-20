@@ -241,6 +241,15 @@ public class Practices {
         }
         return arr;
     }
+
+    public static void print1ToN(int current, int k){
+        if(current > k){
+            return;
+        }
+        System.out.print(current + " ");
+        print1ToN(current+1, k);
+        
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -305,11 +314,16 @@ public class Practices {
 
 
         // q19 moves zeros to end
-        int[] arr = {1,4,0,2,7,0,7,0,3,0,5,0,0,2,1,0,9};
-        int[] ans = movesZerosToEnd(arr);
-        for(int i: ans){
-            System.out.print(i + " ");
-        }
+        // int[] arr = {1,4,0,2,7,0,7,0,3,0,5,0,0,2,1,0,9};
+        // int[] ans = movesZerosToEnd(arr);
+        // for(int i: ans){
+        //     System.out.print(i + " ");
+        // }
+
+
+        // q123 print numbers using recursion
+        int k = 7;
+        print1ToN(1, k);
 
     }
 }
