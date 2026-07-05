@@ -276,6 +276,19 @@ public class Practices {
         }
         return large;
     }
+    public static int secLargestElement(int[] s){
+        int l = Integer.MIN_VALUE;
+        int sl = Integer.MIN_VALUE;
+        for(int i : s){
+            if(i > l){
+                l = i;
+            }
+            if(i>sl && i<l){
+                sl = i;
+            }
+        }
+        return sl;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -290,14 +303,15 @@ public class Practices {
         // System.out.println("The maximum subarray sum is: " + maxSum);
 
         // q13 largest element
-        int largeArr[] = {2, 5, 1, 3, 0};
+        // int largeArr[] = {2, 5, 1, 3, 0};
         // System.out.println("Largest value is : "+largestElem(largeArr));
-        System.out.println("Largest value is : "+largestElem(largeArr));
+        // System.out.println("Largest value is : "+largestElem(largeArr));
 
 
         // q14 second largest element
-        // int arr[] = {2, 5, 1, 3, 0};
+        int arr[] = {2, 5, 1, 3, 0};
         // System.out.println("Second Largest value is : "+secondLargestElem(arr));
+        System.out.println("Second Largest value is : "+secLargestElement(arr));
 
 
         // q15 check sorted array
@@ -359,12 +373,12 @@ public class Practices {
         // System.out.println("sum : "+ sumofArray(arr, size));
         
         // q125 reverse array using recursion
-        int[] arr = {2,5,1,4,3,6};
-        int end = arr.length-1;
-        reverseArray(arr, 0, end);
-        for( int i: arr){
-            System.out.print(i + " ");
-        }
+        // int[] arr = {2,5,1,4,3,6};
+        // int end = arr.length-1;
+        // reverseArray(arr, 0, end);
+        // for( int i: arr){
+        //     System.out.print(i + " ");
+        // }
 
     }
 }
