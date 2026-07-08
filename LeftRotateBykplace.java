@@ -59,12 +59,31 @@ public class LeftRotateBykplace {
             arr[j] = temp;
         }
     }
+    public static void rightRotate(int[] nums, int k) {
+        int n = nums.length;
+        k %=n;
+        int temp[] = new int[n-k];
+        for(int i = 0; i< n-k; i++){
+            temp[i] = nums[i];
+        }
+        for(int i = n-k; i< n; i++){
+            nums[i-n+k] = nums[i];
+        }
+        for(int i = 0; i< n-k; i++){
+            nums[k+i] = temp[i];
+        }
+    }
 
     public static void main(String[] args) {
         int[] arr = {1, 2, 3, 4, 5, 6};
         int k = 2;
 
         rotateclockwise(arr, k);
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+        System.out.println();
+        rightRotate(arr, k);
         for (int num : arr) {
             System.out.print(num + " ");
         }
