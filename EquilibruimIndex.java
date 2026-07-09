@@ -17,12 +17,27 @@ public class EquilibruimIndex {
         // return -1;
 
 // ------------------ optimal ---------------- O(n)
-        int ls = 0, rs = 0, ts = 0;
+        // int ls = 0, rs = 0, ts = 0;
+        // for(int i = 0; i<nums.length; i++){
+        //     ts += nums[i];
+        // }
+        // for(int i = 0; i<nums.length; i++){
+        //     rs = ts-ls-nums[i];
+        //     if(ls == rs){
+        //         return i;
+        //     }
+        //     ls += nums[i];
+        // }
+        // return -1;
+
+
+    // ------------------ optimal another way -------------- O(n)
+        int ls = 0, rs = 0;
         for(int i = 0; i<nums.length; i++){
-            ts += nums[i];
+            rs += nums[i];
         }
         for(int i = 0; i<nums.length; i++){
-            rs = ts-ls-nums[i];
+            rs -=nums[i];
             if(ls == rs){
                 return i;
             }
