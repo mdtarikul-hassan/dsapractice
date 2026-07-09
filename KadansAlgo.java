@@ -39,29 +39,49 @@ class KadansAlgo {
 
     // --------------- follow up ---------------
 
+        // int ms = Integer.MIN_VALUE;
+        // int cs = 0;
+        // int start = 0;
+        // int arrStart = -1, arrEnd = -1;
+        // for(int i =0; i<nums.length; i++){
+        //     if(cs == 0){
+        //         start = i;
+        //     }
+        //     cs += nums[i];
+        //     if(cs > ms){
+        //         ms = cs;
+        //         arrStart = start;
+        //         arrEnd = i;
+        //     }if(cs<0){
+        //         cs = 0;
+        //     }
+        // }
+
+    // for print the subarray -> O(n)
         int ms = Integer.MIN_VALUE;
         int cs = 0;
-        int start = 0;
-        int arrStart = -1, arrEnd = -1;
-        for(int i =0; i<nums.length; i++){
+        int start = 0, arrStart = 0, arrEnd = 0;
+        for(int i = 0; i<nums.length; i++){
             if(cs == 0){
                 start = i;
             }
             cs += nums[i];
-            if(cs > ms){
+            
+            if(cs>ms){
                 ms = cs;
                 arrStart = start;
                 arrEnd = i;
-            }if(cs<0){
+            }
+            
+            if(cs<0){
                 cs = 0;
             }
         }
-        // for print the subarray
-        // System.out.println("Ther subarray is : [");
-        // for(int i = arrStart; i<=arrEnd; i++){
-        //     System.out.println(nums[i] + " ");
-        // }
-        // System.out.println("]");
+        System.out.print("subarray is : " );
+        for(int i = arrStart; i<=arrEnd; i++){
+            System.out.print(nums[i] +" ");
+        }
+
         return ms;
 
     }
