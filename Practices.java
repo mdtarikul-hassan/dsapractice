@@ -298,6 +298,33 @@ public class Practices {
         }
         return check;
     }
+    static int printMaxSubArray(int[] nums){
+        int ms = Integer.MIN_VALUE;
+        int cs = 0;
+        int start = 0, arrStart = 0, arrEnd = 0;
+        for(int i = 0; i<nums.length; i++){
+            if(cs == 0){
+                start = i;
+            }
+            cs += nums[i];
+            
+            if(cs>ms){
+                ms = cs;
+                arrStart = start;
+                arrEnd = i;
+            }
+            
+            if(cs<0){
+                cs = 0;
+            }
+        }
+        System.out.print("subarray is : " );
+        for(int i = arrStart; i<=arrEnd; i++){
+            System.out.print(nums[i] +" ");
+        }
+
+        return ms;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -324,12 +351,12 @@ public class Practices {
 
 
         // q15 check sorted array
-        int arr[] = {1,2,3,4,5,7,8};
-        if(checkSortedArr(arr)){
-            System.out.println("Array is Sorted.");
-        }else{
-            System.out.println("Array is not sorted");
-        }
+        // int arr[] = {1,2,3,4,5,7,8};
+        // if(checkSortedArr(arr)){
+        //     System.out.println("Array is Sorted.");
+        // }else{
+        //     System.out.println("Array is not sorted");
+        // }
 
 
         // q16 remove duplicate from sorted array
@@ -389,5 +416,9 @@ public class Practices {
         //     System.out.print(i + " ");
         // }
 
+        //q22 print maximum sub array that present in the array
+        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        int ms = printMaxSubArray(nums);
+        System.out.println("Max : "+ms);
     }
 }
