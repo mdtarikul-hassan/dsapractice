@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class RemoveDuplicateFromUnsorted {
     public static ArrayList<Integer> removeDupliacte(int[] nums) {
@@ -19,17 +18,26 @@ public class RemoveDuplicateFromUnsorted {
         // }
         // return arrList;
 
-    // ------------------------ optimal [by hashing] ---------------- O(n)
-        HashMap<Integer, Boolean> seen = new HashMap<>();
-        ArrayList<Integer> result = new ArrayList<>();
-
-        for (int val : nums) {
-            if (!seen.containsKey(val)) {
-                result.add(val);
-                seen.put(val, true);
+    // less code -> O(n)
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i<nums.length; i++){
+            if(!list.contains(nums[i])){
+                list.add(nums[i]);
             }
         }
-        return result;
+        return list;
+
+    // ------------------------ optimal [by hashing] ---------------- O(n)
+        // HashMap<Integer, Boolean> seen = new HashMap<>();
+        // ArrayList<Integer> result = new ArrayList<>();
+
+        // for (int val : nums) {
+        //     if (!seen.containsKey(val)) {
+        //         result.add(val);
+        //         seen.put(val, true);
+        //     }
+        // }
+        // return result;
     
     }
 

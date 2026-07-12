@@ -325,6 +325,16 @@ public class Practices {
 
         return ms;
     }
+    static ArrayList<Integer> removeDuplicateFromUnsortedArr(int[] nums){
+        // btrute force -> O(n)
+        ArrayList<Integer> list = new ArrayList<>();
+        for(int i = 0; i<nums.length; i++){
+            if(!list.contains(nums[i])){
+                list.add(nums[i]);
+            }
+        }
+        return list;
+    }
     public static void main(String[] args) {
 
         // q43 find missing number in an consecuetive array
@@ -367,11 +377,11 @@ public class Practices {
         // }
 
         // q26 remove duplicate from unsorted array
-        // int arr[] = {1,4,4,4,2,3,3,3,4,2,1,7,7,7,3,1,8,8,4,2,4,1,4,3,1};
-        // ArrayList<Integer> list = removeDuplicateFromUnsorted(arr);
-        // for(int l:list){
-        //     System.out.print(l +" ");
-        // }
+        int arr[] = {1,4,4,4,2,3,3,3,4,2,1,7,7,7,3,1,8,8,4,2,4,1,4,3,1};
+        ArrayList<Integer> list = removeDuplicateFromUnsortedArr(arr);
+        for(int l:list){
+            System.out.print(l +" ");
+        }
 
 
         // q17 left rotate by 1
@@ -417,8 +427,9 @@ public class Practices {
         // }
 
         //q22 print maximum sub array that present in the array
-        int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
-        int ms = printMaxSubArray(nums);
-        System.out.println("Max : "+ms);
+        // int[] nums = {-2,1,-3,4,-1,2,1,-5,4};
+        // int ms = printMaxSubArray(nums);
+        // System.out.println("Max : "+ms);
+
     }
 }
