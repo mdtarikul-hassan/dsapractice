@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -61,6 +62,22 @@ public class FrequencyofElements {
             ans.add(temp);
         }
         return ans;
+
+    }
+
+
+    // ------------- optimal by Hashmap --------------- O(n)
+    static HashMap<Integer, Integer> count1Frequency(int[] arr){
+
+        HashMap<Integer, Integer> map = new HashMap<>();
+        for(int i=0; i< arr.length; i++){
+           if(map.containsKey(arr[i])){
+                map.put(arr[i], map.get(arr[i]) + 1);
+                continue;
+           }
+           map.put(arr[i], map.getOrDefault(arr[i], 0)+1);
+        } 
+        return map;
     }
     public static void main(String[] args) {
         int arr[] = {10, 5, 10, 15, 10, 5};
@@ -69,5 +86,10 @@ public class FrequencyofElements {
         for(ArrayList<Integer> val : ans){
             System.out.println(val);
         }
+        System.out.println();
+        HashMap<Integer, Integer> map = count1Frequency(arr);
+        System.out.println(map);
+        System.out.println("Max count is : " + Collections.max(map.values()));
+        System.out.println("Min count is : " + Collections.max(map.values()));
     }
 }
