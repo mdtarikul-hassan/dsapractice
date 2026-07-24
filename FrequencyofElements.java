@@ -89,7 +89,9 @@ public class FrequencyofElements {
         System.out.println();
         HashMap<Integer, Integer> map = count1Frequency(arr);
         System.out.println(map);
+        // highest count
         System.out.println("Max count is : " + Collections.max(map.values()));
+        // lowest count
         System.out.println("Min count is : " + Collections.max(map.values()));
     }
 }
