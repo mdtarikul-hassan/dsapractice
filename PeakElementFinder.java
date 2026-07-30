@@ -9,18 +9,25 @@ public class PeakElementFinder {
         // }
         // return -1;
 
-
-    // ----------------------- optimal approach -------------- O(logn)
-        int low = 0, high = nums.length - 1;
-        while (low < high) {
-            int mid = (low + high) / 2;
-            if (nums[mid] > nums[mid + 1]) {
-                high = mid;
-            } else {
-                low = mid + 1;
+        for(int i = 1; i< nums.length-1; i++){
+            if(nums[i] > nums[i-1] && nums[i] > nums[i+1]){
+                return i;
             }
         }
-        return low;
+        return -1;
+
+
+    // ----------------------- optimal approach -------------- O(logn)
+        // int low = 0, high = nums.length - 1;
+        // while (low < high) {
+        //     int mid = (low + high) / 2;
+        //     if (nums[mid] > nums[mid + 1]) {
+        //         high = mid;
+        //     } else {
+        //         low = mid + 1;
+        //     }
+        // }
+        // return low;
     }
     // -------------- peak in 2d matrix by brute force -------------- O(n*logm)
       static int maxElement(int[][] arr, int col) {
@@ -58,9 +65,9 @@ public class PeakElementFinder {
             return new int[]{-1, -1};
       }
     public static void main(String[] args) {
-        // int[] nums = {1, 3, 20, 4, 1, 0};
-        // int index = findPeakElement(nums);
-        // System.out.println("Peak at index: " + index + " with value: " + nums[index]);
+        int[] nums = {1, 3, 20, 4, 1, 0};
+        int index = findPeakElement(nums);
+        System.out.println("Peak at index: " + index + " with value: " + nums[index]);
 
 
     // peak in 2d matrix
