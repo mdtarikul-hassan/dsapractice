@@ -61,7 +61,7 @@ public class RemoveDuplicateFromUnsorted {
         for (int num : result) {
             System.out.print(num + " ");
         }
-    
+    //
         HashSet<Integer> resultnew = removeDupliacteFromUnsorted(arr);
 
         System.out.print("Array after removing duplicates by set: ");
