@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class RemoveDuplicateFromUnsorted {
     public static ArrayList<Integer> removeDupliacte(int[] nums) {
@@ -38,16 +39,33 @@ public class RemoveDuplicateFromUnsorted {
         //     }
         // }
         // return result;
+    }
+
+    public static HashSet<Integer> removeDupliacteFromUnsorted(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+        for(int i = 0; i<nums.length; i++){
+            if(!set.contains(nums[i])){
+                set.add(nums[i]);
+            }
+        }
+        return set;
     
     }
 
     public static void main(String[] args){
-         int[] arr = {4, 5, 4, 2, 2, 3, 1};
+        int[] arr = {4, 5, 4, 2, 2, 3, 1};
 
         ArrayList<Integer> result = removeDupliacte(arr);
 
         System.out.print("Array after removing duplicates: ");
         for (int num : result) {
+            System.out.print(num + " ");
+        }
+    
+        HashSet<Integer> resultnew = removeDupliacteFromUnsorted(arr);
+
+        System.out.print("Array after removing duplicates by set: ");
+        for (int num : resultnew) {
             System.out.print(num + " ");
         }
     }
