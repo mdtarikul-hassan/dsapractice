@@ -34,6 +34,40 @@ public class RearrangeArraybySign {
         }
         return ans;
     }
+    // ------------------- another way ---------------- O(n)
+    public int[] rearrangeArray(int[] nums) {
+        int[] pos = new int[nums.length];
+        int[] neg = new int[nums.length];
+        int[] temp = new int[nums.length];
+        int pi = 0;
+        int ni = 0;
+
+        for(int i = 0; i< nums.length; i++){
+            if(nums[i] > 0){
+                pos[pi] = nums[i];
+                pi++;
+            }else{
+                neg[ni] = nums[i];
+                ni++;
+            }
+        }
+
+        pi = 0;
+        ni = 0;
+
+        for(int i = 0; i< nums.length; i=i+2){
+            temp[i] = pos[pi];
+            pi++;
+        }
+
+        for(int i = 1; i< nums.length; i=i+2){
+            temp[i] = neg[ni];
+            ni++;
+        }
+
+        return temp;
+    }
+    
     public static void main(String[] args) {
         int[] A = {1,2,-3,-1,-2,3};
 
